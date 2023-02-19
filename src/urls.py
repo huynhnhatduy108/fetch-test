@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import path
 from django.conf.urls import include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('api/brand/', include('api.v1.brand.urls')),
@@ -33,3 +35,5 @@ urlpatterns += [
     path('v1/' + "docs/", SpectacularSwaggerView.as_view(url_name="schema_v1"), name='swagger_v1'),
     path('v1/' + "redoc/", SpectacularRedocView.as_view(url_name="schema_v1"), name='redoc_v1')
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
