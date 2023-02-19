@@ -13,5 +13,6 @@ sqlparse==0.4.3
 typing_extensions==4.3.0
 virtualenv==20.16.5
 zipp==3.8.1
+
 django-cors-headers==3.13.0
 drf-spectacular==0.22.1
